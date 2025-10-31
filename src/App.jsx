@@ -41,5 +41,7 @@ const router = createBrowserRouter(
 );
 
 export default function App() {
+  console.log('cek env', import.meta.env.MODE);
+  
   return <RouterProvider router={router} />;
 }
