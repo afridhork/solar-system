@@ -12,7 +12,7 @@ import TextSprite from './textSprite'
 function Planet({ data, onClick, selectedPlanet }) {    
     const planetRef = useRef();
     const textRef = useRef()
-    const texture = useTexture(`${import.meta.env.VITE_API_URL}/assets/textures/planets/${data.name}.jpg`);
+    const texture = useTexture(`/assets/textures/planets/${data.name}.jpg`);
     const ringTexture = useTexture("/assets/textures/planets/saturn-ring.png");
     
     // 🪐 Saturn ring setup
