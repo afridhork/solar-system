@@ -23,7 +23,13 @@ import SolarSystem from "./pages/SolarSystem";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<Setup />} />
+      {
+        import.meta.env.MODE === 'development' ? (
+          <Route index element={<Setup />} />
+        ):(
+          <Route index element={<SolarSystem />} />
+        )
+      }
       <Route path="transform" element={<Transform />} />
       <Route path="animation" element={<Animation />} />
       <Route path="camera" element={<Camera />} />
@@ -40,8 +46,6 @@ const router = createBrowserRouter(
   )
 );
 
-export default function App() {
-  console.log('cek env', import.meta.env.MODE);
-  
+export default function App() {  
   return <RouterProvider router={router} />;
 }
