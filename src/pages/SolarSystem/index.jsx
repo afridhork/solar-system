@@ -3,6 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { OrbitControls, Stats, useTexture } from '@react-three/drei'
 import { useRef, useMemo, useState, useEffect } from 'react'
 import { useControls } from 'leva'
+import sunTexture from '@/assets/textures/planets/sun.jpg'
 import AsteroidBelt from './asteroid'
 import SpaceStars from './spaceStars'
 import TextSprite from './textSprite'
@@ -171,12 +172,9 @@ function CameraControls({ target }) {
   return <OrbitControls ref={controls} enableDamping />
 }
 
-
-
 // 🌌 Main Scene
 function SolarSystemScene({selectedPlanet, setSelectedPlanet}) {
     //   const [selectedPlanet, setSelectedPlanet] = useState()
-    console.log('cek selected planet', selectedPlanet);
     
     const planetsData = useMemo(
         () => [
@@ -202,7 +200,7 @@ function SolarSystemScene({selectedPlanet, setSelectedPlanet}) {
       {/* Sun */}
       <mesh>
         <sphereGeometry args={[3, 32, 64]} />
-        <meshBasicMaterial map={useTexture('/assets/textures/planets/sun.jpg')} />
+        <meshBasicMaterial map={useTexture(sunTexture)} />
       </mesh>
 
       {/* Planets */}
