@@ -22,7 +22,7 @@ import SolarSystem from "./pages/SolarSystem";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={import.meta.env.MODE === 'development' ? <RootLayout /> : null}>
+    <Route path="/" element={< RootLayout />}>
       {
         import.meta.env.MODE === 'development' ? (
           <Route index element={<Setup />} />
