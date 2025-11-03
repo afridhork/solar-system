@@ -174,8 +174,6 @@ function CameraControls({ target }) {
 
 // 🌌 Main Scene
 function SolarSystemScene({selectedPlanet, setSelectedPlanet}) {
-    //   const [selectedPlanet, setSelectedPlanet] = useState()
-    
     const planetsData = useMemo(
         () => [
             { name: 'mercury', radius: 4, size: 0.32, speed: 0.04 },
@@ -191,37 +189,37 @@ function SolarSystemScene({selectedPlanet, setSelectedPlanet}) {
     )
     
     return (
-        <>
-      {/* Lights */}
-      <ambientLight intensity={0.08} />
-      <pointLight position={[0, 0, 0]} intensity={100} color="#fff" />
-      {/* <directionalLight position={[0, 3, 0]} intensity={0.8} /> */}
+      <>
+        {/* Lights */}
+        <ambientLight intensity={0.08} />
+        <pointLight position={[0, 0, 0]} intensity={100} color="#fff" />
+        {/* <directionalLight position={[0, 3, 0]} intensity={0.8} /> */}
 
-      {/* Sun */}
-      <mesh>
-        <sphereGeometry args={[3, 32, 64]} />
-        <meshBasicMaterial map={useTexture(sunTexture)} />
-      </mesh>
+        {/* Sun */}
+        <mesh>
+          <sphereGeometry args={[3, 32, 64]} />
+          <meshBasicMaterial map={useTexture(sunTexture)} />
+        </mesh>
 
-      {/* Planets */}
-      {planetsData.map((data, i) => (
-          <Planet 
-            key={i} 
-            data={data} 
-            onClick={(p) => setSelectedPlanet(p)} 
-            selectedPlanet={selectedPlanet} 
-          />
-        ))
-      }
+        {/* Planets */}
+        {planetsData.map((data, i) => (
+            <Planet 
+              key={i} 
+              data={data} 
+              onClick={(p) => setSelectedPlanet(p)} 
+              selectedPlanet={selectedPlanet} 
+            />
+          ))
+        }
 
-      {/* Extras */}
-      <AsteroidBelt count={1000} />
-      <SpaceStars />
+        {/* Extras */}
+        <AsteroidBelt count={1000} />
+        <SpaceStars />
 
-      {/* <Stats /> */}
-      <CameraControls target={selectedPlanet ? selectedPlanet.position : null} />
-    </>
-  )
+        {/* <Stats /> */}
+        <CameraControls target={selectedPlanet ? selectedPlanet.position : null} />
+      </>
+    )
 }
 
 // 🎮 Canvas entry point

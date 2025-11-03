@@ -4,6 +4,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import { lazy } from "react";
 
 import RootLayout from "./layout/Sidebar";
 import Setup from "./pages/Setup";
@@ -17,8 +18,9 @@ import Material from "./pages/Material";
 import ThreeDText from "./pages/3DText";
 import Lights from "./pages/Lights";
 import Shadow from "./pages/Shadow";
-import HauntedHause from "./pages/HauntedHouse";
-import SolarSystem from "./pages/SolarSystem";
+
+const HauntedHause = lazy(() => import('./pages/HauntedHouse'))
+const SolarSystem = lazy(() => import('./pages/SolarSystem'))
 
 const router = createBrowserRouter(
   createRoutesFromElements(
